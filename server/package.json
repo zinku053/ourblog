@@ -1,31 +1,26 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend server for our blog application",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zinku053/ourblog.git"
   },
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zinku053/ourblog/issues"
   },
   "homepage": "https://github.com/zinku053/ourblog#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongoose": "^8.4.1",
-    "multer": "^1.4.5-lts.1",
-    "multer-gridfs-storage": "^5.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.3"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0"
   }
 }

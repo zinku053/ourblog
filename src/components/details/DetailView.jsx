@@ -5,7 +5,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
-import Comments from './comments/Comments';
 
 const Container = styled(Box)(({ theme }) => ({
     margin: '50px 100px',
@@ -59,7 +58,6 @@ const DetailView = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        // Ensure id exists before fetching data
         if (id) {
             const fetchData = async () => {
                 try {
@@ -108,7 +106,6 @@ const DetailView = () => {
             </Author>
 
             <Typography>{post.description}</Typography>
-            <Comments post={post} />
         </Container>
     );
 };

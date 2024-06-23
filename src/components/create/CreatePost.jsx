@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-
-import { styled, Box, TextareaAutosize, Button, InputBase, FormControl  } from '@mui/material';
+import { styled, Box, TextareaAutosize, Button, InputBase, FormControl } from '@mui/material';
 import { AddCircle as Add } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -69,13 +68,16 @@ const CreatePost = () => {
                 data.append("file", file);
                 
                 const response = await API.uploadFile(data);
-                post.picture = response.data;
+                setPost(prevPost => ({ ...prevPost, picture: response.data }));
             }
         }
         getImage();
-        post.categories = location.search?.split('=')[1] || 'All';
-        post.username = account.username;
-    }, [file])
+        setPost(prevPost => ({
+            ...prevPost,
+            categories: location.search?.split('=')[1] || 'All',
+            username: account.username
+        }));
+    }, [file, location.search, account.username]);
 
     const savePost = async () => {
         await API.createPost(post);
