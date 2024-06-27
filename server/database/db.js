@@ -3,19 +3,15 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const USERNAME = process.env.DB_USERNAME;
-const PASSWORD = process.env.DB_PASSWORD;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydatabase';
 
-const Connection =async(USERNAME,PASSWORD) => {
-
-    const MONGODB_URI = 'mongodb+srv://$(username):$(password)@blog-app.g5jsk3p.mongodb.net/?retryWrites=true&w=majority&appName=blog-app';
-
-    try {
-        await mongoose.connect(URL, { useNewUrlParser: true })
-        console.log('Database connected successfully');
-    } catch (error) {
-        console.log('Error while connecting to the database ', error);
-    }
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(MONGODB_URI);
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+  }
 };
 
-export default Connection;
+export default connectToDatabase;

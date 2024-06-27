@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
 
+// Styled components and initial values...
+
 const Component = styled(Box)`
     width: 400px;
     margin: auto;
-    box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.6);
+    box-shadow: 5px 2px 5px 2px rgb(0 0 0 / 0.6);
 `;
 
 const Image = styled('img')({
@@ -66,7 +68,7 @@ const loginInitialValues = {
 const signupInitialValues = {
     name: '',
     username: '',
-    password: '',
+    password: ''
 };
 
 const Login = ({ isUserAuthenticated }) => {
@@ -81,9 +83,8 @@ const Login = ({ isUserAuthenticated }) => {
     const imageURL = 'https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png';
 
     useEffect(() => {
-        // Clear error message on login state change
         showError('');
-    }, [login]); // Dependency array should include 'login'
+    }, [login]);
 
     const onValueChange = (e) => {
         setLogin({ ...login, [e.target.name]: e.target.value });
@@ -99,18 +100,19 @@ const Login = ({ isUserAuthenticated }) => {
             if (response.isSuccess) {
                 showError('');
 
-                sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
-                sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
+                sessionStorage.setItem('accessToken', 'Bearer ${response.data.accessToken}');
+                sessionStorage.setItem('refreshToken', 'Bearer ${response.data.refreshToken}');
                 setAccount({ name: response.data.name, username: response.data.username });
 
-                isUserAuthenticated(true);
+                isUserAuthenticated(true); // Call as a function
                 setLogin(loginInitialValues);
                 navigate('/');
             } else {
-                showError('Something went wrong! Please try again later.');
+                showError('Invalid username or password');
             }
         } catch (error) {
             showError('Something went wrong! Please try again later.');
+            console.log(error);
         }
     };
 
@@ -139,8 +141,21 @@ const Login = ({ isUserAuthenticated }) => {
                 <Image src={imageURL} alt="blog" />
                 {account === 'login' ? (
                     <Wrapper>
-                        <TextField variant="standard" value={login.username} onChange={(e) => onValueChange(e)} name="username" label="Enter Username" />
-                        <TextField variant="standard" value={login.password} onChange={(e) => onValueChange(e)} name="password" label="Enter Password" />
+                        <TextField
+                            variant="standard"
+                            value={login.username}
+                            onChange={(e) => onValueChange(e)}
+                            name="username"
+                            label="Enter Username"
+                        />
+                        <TextField
+                            variant="standard"
+                            value={login.password}
+                            onChange={(e) => onValueChange(e)}
+                            name="password"
+                            label="Enter Password"
+                            type="password"
+                        />
 
                         {error && <Error>{error}</Error>}
 
@@ -154,9 +169,28 @@ const Login = ({ isUserAuthenticated }) => {
                     </Wrapper>
                 ) : (
                     <Wrapper>
-                        <TextField variant="standard" onChange={(e) => onInputChange(e)} name="name" label="Enter Name" />
-                        <TextField variant="standard" onChange={(e) => onInputChange(e)} name="username" label="Enter Username" />
-                        <TextField variant="standard" onChange={(e) => onInputChange(e)} name="password" label="Enter Password" />
+                        <TextField
+                            variant="standard"
+                            value={signup.name}
+                            onChange={(e) => onInputChange(e)}
+                            name="name"
+                            label="Enter Name"
+                        />
+                        <TextField
+                            variant="standard"
+                            value={signup.username}
+                            onChange={(e) => onInputChange(e)}
+                            name="username"
+                            label="Enter Username"
+                        />
+                        <TextField
+                            variant="standard"
+                            value={signup.password}
+                            onChange={(e) => onInputChange(e)}
+                            name="password"
+                            label="Enter Password"
+                            type="password"
+                        />
 
                         <SignupButton onClick={signupUser}>Signup</SignupButton>
                         <Text style={{ textAlign: 'center' }}>OR</Text>
