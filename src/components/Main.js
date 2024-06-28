@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import  {Form}  from "./Form";
-import { Table } from "./Table";
+import { Blogs } from "./Blogs";
 import { getPersons } from "../api";
 
 export const Main = () => {
@@ -30,9 +30,10 @@ export const Main = () => {
   const onEdit = (rowData) => {};
 
   return (
-    <div id="main">
+    <div id="main" className="container">
+      <div style={{height:"20px"}}></div>
       <Form onSubmit={onSubmit} />
-      <Table data={data} isLoading={isLoading} remove={onRemove} onEdit={onEdit} />
+      <Blogs data={data} isLoading={isLoading} remove={onRemove} onEdit={onEdit} />
     </div>
   );
 };

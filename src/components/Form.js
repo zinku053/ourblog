@@ -11,18 +11,49 @@ export const Form = ({ onSubmit }) => {
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(formData);
-      }}
-    >
-      <input type="text" name="name" placeholder="name" value={formData.name} onChange={onChange} />
-      <input type="text" name="author" placeholder="author" value={formData.author} onChange={onChange} />
-      <input type="text" name="body" placeholder="body" value={formData.body} onChange={onChange} />
-      <input type="text" name="type" placeholder="type" value={formData.type} onChange={onChange} />
-      <input type="submit" />
-      <button>Reset</button>
+    <form className="row g-3" onSubmit={(e) => {
+      e.preventDefault();
+      onSubmit(formData);
+    }}>
+      <div className="col">
+        <input
+          type="text"
+          className="form-control"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={onChange}
+        />
+      </div>
+      <div className="col">
+        <input
+          type="text"
+          className="form-control"
+          name="author"
+          placeholder="Author"
+          value={formData.author}
+          onChange={onChange}
+        />
+      </div>
+      <div className="col">
+        <input
+          type="text"
+          className="form-control"
+          name="body"
+          placeholder="Body"
+          value={formData.body}
+          onChange={onChange}
+        />
+      </div>
+      
+      <div className="col-auto">
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </div>
+      <div className="col-auto">
+        <button type="button" className="btn btn-secondary">Reset</button>
+      </div>
     </form>
+    
+
   );
 };
