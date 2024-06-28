@@ -10,6 +10,7 @@ export const Blogs = ({ data, isLoading, remove, onEdit }) => {
         return (
           <Link to={`/blog/${row.id}`} key={index} className="card m-3 col-12 col-md-6 col-lg-3" style={{ width: "18rem", textDecoration: 'none' }}>
             <div className="card-body">
+                <p>{row.type}</p>
                 <h5 className="card-title">{row.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{row.author}</h6>
                 <p className="card-text" style={{ whiteSpace: 'pre-wrap' }}>

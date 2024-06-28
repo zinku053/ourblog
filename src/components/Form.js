@@ -10,6 +10,8 @@ export const Form = ({ onSubmit }) => {
     });
   };
 
+
+  
   return (
     <form className="row g-3" onSubmit={(e) => {
       e.preventDefault();
@@ -45,13 +47,11 @@ export const Form = ({ onSubmit }) => {
           onChange={onChange}
         />
       </div>
-      
+
       <div className="col-auto">
         <button type="submit" className="btn btn-primary">Submit</button>
       </div>
-      <div className="col-auto">
-        <button type="button" className="btn btn-secondary">Reset</button>
-      </div>
+      
     </form>
     
 

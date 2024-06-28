@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-danger shadow">
+        <nav className="navbar navbar-expand-lg bg-danger shadow"  style={{ height: '100px' }}>
         <div className="container-fluid">
         <Link className="navbar-brand" to="/">
             <img src="/logo-3.png" className="navbar-logo" alt="" />
