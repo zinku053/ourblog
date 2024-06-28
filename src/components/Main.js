@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import  {Form}  from "./Form";
 import { Blogs } from "./Blogs";
 import { getPersons } from "../api";
-
+export let dataFromMain = [];
 export const Main = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +12,7 @@ export const Main = () => {
     getPersons(filter)
       .then((response) => {
         setData(response);
+        dataFromMain = response; 
       })
       .finally(() => {
         setIsLoading(false);
@@ -28,7 +29,7 @@ export const Main = () => {
 
   const onRemove = (id) => {};
   const onEdit = (rowData) => {};
-
+  
   return (
     <div id="main" className="container">
       <div style={{height:"20px"}}></div>
@@ -37,3 +38,4 @@ export const Main = () => {
     </div>
   );
 };
+

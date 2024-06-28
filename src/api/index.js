@@ -34,7 +34,6 @@ const Blog = [
     "body": "Machu Picchu, the lost city of the Incas! Nestled high in the Peruvian Andes, this ancient citadel is a testament to the ingenuity and architectural prowess of the Inca civilization. Wander through terraced ruins, marvel at precision-cut stone walls, and soak in panoramic views of mist-shrouded mountains. Machu Picchu offers a glimpse into Peru's rich history and cultural legacy, inviting travelers to explore its mysteries and significance. Join me on a journey to discover the wonders of Machu Picchu and experience the allure of this UNESCO World Heritage site.",
     "author": "Diego"
   },
-  // Remaining entries...
   {
     "id": 6,
     "name": "Parisian Pastry Delights",
@@ -71,7 +70,7 @@ const Blog = [
     "author": "Nikos"
   }
 ];
-
+export default Blog;
 export const getPersons = (filters) => {
   const result = Blog.filter((x) => {
     if (!!filters && Object.keys(filters).length > 0) {
