@@ -37,3 +37,26 @@
     transform: rotate(360deg);
   }
 }
+.home,.sidebar{
+  background-color: white;
+
+
+}
+.Top{
+  background-color: rgb(40, 76, 121);
+}
+.Blogs{
+  background-color: rgb(114, 163, 232);
+  
+}
+.Button{
+  background-color: rgb(40, 76, 121);
+  border-radius: 17px;
+  padding: 2px;
+  border: none;
+  color:white;
+}
+
+
+
+

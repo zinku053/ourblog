@@ -1,12 +1,17 @@
 import React from 'react'
 import { Main } from '../components/Main'
 import Navbar from '../components/Navbar'
+import Sidebar from '../components/Sidebar'
+
 
 export default function Home() {
   return (
-    <div className='bg-success' style={{ minHeight: '100vh' }}>
+    <div className='home' style={{ minHeight: '100vh' }}>
         <Navbar/>
-        <Main/>
+        <div className="d-flex" >
+        <Sidebar />
+        <Main />
+      </div>
     </div>
   )
 }

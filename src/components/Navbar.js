@@ -3,10 +3,10 @@ import { Link} from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-danger shadow"  style={{ height: '100px' }}>
+        <nav className="Top navbar navbar-expand-lg shadow"  style={{ height: '100px' }}>
         <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-            <img src="/logo-3.png" className="navbar-logo" alt="" />
+            <img src="/default.png" className="navbar-logo" style={{width:"300px"}} alt="" />
           </Link>
           <button
             className="navbar-toggler"
@@ -24,15 +24,7 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2">
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white active"
-                  aria-current="page"
-                  to="/profile"
-                >
-                  Profile
-                </Link>
-              </li>
+              
               {localStorage.getItem("authToken") ? (
                 <li className="nav-item">
                   <Link
@@ -49,10 +41,10 @@ export default function Navbar() {
             </ul>
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
-                <Link className="btn bg-white mx-2 text-danger" to="/login">
+                <Link className="btn bg-white mx-2 text-black" style={{borderRadius:"20px"}} to="/login">
                   Login
                 </Link>
-                <Link className="btn bg-white mx-2 text-danger" to="/signup">
+                <Link className="btn bg-white mx-2 text-black" style={{borderRadius:"20px"}} to="/signup">
                   Sign up
                 </Link>
               </div>
