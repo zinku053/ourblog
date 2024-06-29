@@ -52,7 +52,7 @@ const Blog = [
     "id": 8,
     "name": "Solo Backpacking Across Southeast Asia",
     "type": "experience",
-    "body": "Embarking on a solo backpacking journey through Southeast Asia is an exhilarating experience filled with cultural immersion and personal growth. From bustling cities like Bangkok and Ho Chi Minh City to tranquil beaches in Bali and Phuket, each destination offers unique adventures and discoveries. Dive into vibrant street food scenes, explore ancient temples, and forge connections with fellow travelers from around the globe. Join me as I recount the highs, lows, and transformative moments of solo backpacking across Southeast Asia.",
+    "body": "Embarking on a solo backpacking journey through Southeast Asia is an exhilarating experience ",
     "author": "Aiden"
   },
   {

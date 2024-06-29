@@ -27,7 +27,10 @@ export const Main = () => {
     loadData(formData);
   };
 
-  const onRemove = (id) => {};
+  const onRemove = (id) => {
+     const newData = data.filter(item => item.id !== id);
+    setData(newData);
+  };
   const onEdit = (rowData) => {};
   
   return (
