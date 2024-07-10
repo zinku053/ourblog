@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import Connection from './database/db.js'; // Correct import statement
+import { connectDB } from './database/db.js'; // Importing named export connectDB
 
 dotenv.config();
 
@@ -21,8 +21,8 @@ const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
-// Establish database connection
-Connection(username, password)
+// Establish database connection using connectDB function
+connectDB(username, password)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running successfully on PORT ${PORT}`);
